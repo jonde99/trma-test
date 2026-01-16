@@ -177,33 +177,35 @@ options =
 			["srsAutoLaunchEnabled"] = true,
 			["srsOverlayCompactModeEnabled"] = true,
 		}, -- end of ["DCS-SRS"]
-		["SpitfireLFMkIX"] = 
+		["F/A-18C"] = 
 		{
-			["assistance"] = 100,
-			["aileronTrim"] = 0,
+			["abDetent"] = 0,
+			["canopyReflections"] = 0,
+			["hmdEye"] = 1,
 			["CPLocalList"] = "default",
-			["autoRudder"] = false,
-		}, -- end of ["SpitfireLFMkIX"]
-		["AH-64D_BLK_II"] = 
+			["F18RealisticTDC"] = true,
+			["mfdReflections"] = 0,
+		}, -- end of ["F/A-18C"]
+		["Tacview"] = 
 		{
-			["AH64HmdEye"] = 1,
-			["CPLocalList"] = "default",
-			["AH64BalaclavaCPG"] = true,
-			["AH64PedalsTrimmingMethod"] = 0,
-			["AH64ManTrkRampUpSpeed"] = 5,
-			["AH64CockpitShake"] = 50,
-			["AH64AutoHandover"] = true,
-			["AH64CyclicTrimmingMethod"] = 0,
-			["AH64IhadssMonocleVisible"] = true,
-			["AH64BalaclavaPLT"] = true,
-			["AH64AISubtitles"] = true,
-			["AH64VRSNotificationVisual"] = false,
-			["AH64AIIFFColorScheme"] = 0,
-			["AH64TriggerGuardEnable"] = false,
-			["AH64LockoutDetent"] = 1,
-			["AH64AIInterfaceColorScheme"] = 0,
-			["AH64VRSNotificationAudio"] = false,
-		}, -- end of ["AH-64D_BLK_II"]
+			["tacviewRealTimeTelemetryPassword"] = "",
+			["tacviewSinglePlayerFlights"] = 2,
+			["tacviewPlaybackDelay"] = 600,
+			["tacviewMultiplayerFlightsAsClient"] = 2,
+			["tacviewModuleEnabled"] = true,
+			["tacviewDebugMode"] = 0,
+			["tacviewRemoteControlPort"] = "42675",
+			["tacviewRealTimeTelemetryEnabled"] = false,
+			["tacviewMultiplayerFlightsAsHost"] = 2,
+			["tacviewTerrainExport"] = 0,
+			["tacviewRealTimeTelemetryPort"] = "42674",
+			["tacviewRemoteControlEnabled"] = false,
+			["tacviewBookmarkShortcut"] = 0,
+			["tacviewAutoDiscardFlights"] = 10,
+			["tacviewFlightDataRecordingEnabled"] = true,
+			["tacviewRemoteControlPassword"] = "",
+			["tacviewExportPath"] = "",
+		}, -- end of ["Tacview"]
 		["DCS-ROLEX"] = 
 		{
 			["totalFlightTimeDefaultColor"] = 0,
@@ -266,6 +268,15 @@ options =
 			["CPLocalList"] = "default",
 			["autoRudder"] = false,
 		}, -- end of ["TF-51D"]
+		["UH-1H"] = 
+		{
+			["UHRudderTrimmer"] = false,
+			["autoPilot"] = true,
+			["UH1HCockpitShake"] = 50,
+			["CPLocalList"] = "default",
+			["weapTooltips"] = true,
+			["UHTrimmingMethod"] = 0,
+		}, -- end of ["UH-1H"]
 		["F-16C"] = 
 		{
 			["hmdEye"] = 1,
@@ -279,24 +290,33 @@ options =
 			["canopyTint"] = 1,
 			["pitchForceStickGradient"] = 1,
 		}, -- end of ["F-16C"]
-		["UH-1H"] = 
+		["AH-64D_BLK_II"] = 
 		{
-			["UHRudderTrimmer"] = false,
-			["autoPilot"] = true,
-			["UH1HCockpitShake"] = 50,
+			["AH64HmdEye"] = 1,
 			["CPLocalList"] = "default",
-			["weapTooltips"] = true,
-			["UHTrimmingMethod"] = 0,
-		}, -- end of ["UH-1H"]
-		["F/A-18C"] = 
+			["AH64BalaclavaCPG"] = true,
+			["AH64PedalsTrimmingMethod"] = 0,
+			["AH64ManTrkRampUpSpeed"] = 5,
+			["AH64CockpitShake"] = 50,
+			["AH64AutoHandover"] = true,
+			["AH64CyclicTrimmingMethod"] = 0,
+			["AH64IhadssMonocleVisible"] = true,
+			["AH64BalaclavaPLT"] = true,
+			["AH64AISubtitles"] = true,
+			["AH64VRSNotificationVisual"] = false,
+			["AH64AIIFFColorScheme"] = 0,
+			["AH64TriggerGuardEnable"] = false,
+			["AH64LockoutDetent"] = 1,
+			["AH64AIInterfaceColorScheme"] = 0,
+			["AH64VRSNotificationAudio"] = false,
+		}, -- end of ["AH-64D_BLK_II"]
+		["SpitfireLFMkIX"] = 
 		{
-			["abDetent"] = 0,
-			["canopyReflections"] = 0,
-			["hmdEye"] = 1,
+			["assistance"] = 100,
+			["aileronTrim"] = 0,
 			["CPLocalList"] = "default",
-			["F18RealisticTDC"] = true,
-			["mfdReflections"] = 0,
-		}, -- end of ["F/A-18C"]
+			["autoRudder"] = false,
+		}, -- end of ["SpitfireLFMkIX"]
 		["F-15C"] = 
 		{
 			["CPLocalList"] = "default",
