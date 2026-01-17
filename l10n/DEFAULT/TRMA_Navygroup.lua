@@ -1,11 +1,9 @@
 ------------------------------------------------------------------
--- CARRIER SCRIPT rev 3.7 (alpha)
--- getbearingintowind i added the -9 deck offset
-
--- startRecoveryCycle 
--- - changed AbsTime to Time
--- - simplified starter (no start time = immediately, no 180)
--- - changed wod speed default (20)
+-- CARRIER SCRIPT rev 3.7 beta - changes:
+-- AddTurnIntoWind() changed 
+--- no start time = immediately
+--- removed 180 return lets see what happens.
+--- changed wod speed default (20)
 
 -- case detection changed sunrise/sunset time to 15 from 30minutes
 -- added default cruise speed 25
