@@ -9,7 +9,10 @@ on:
       - README.md
       - dummy.miz
       - appveyor.yml
-
+      
+permissions:
+  contents: write
+  
 jobs:
   build:
     runs-on: ubuntu-latest
