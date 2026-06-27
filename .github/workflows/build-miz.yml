@@ -55,8 +55,11 @@ jobs:
             -x "dummy.miz" \
             -x "appveyor.yml"
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
         with:
-          name: DCS-Mission-${{ steps.inc_version.outputs.new_version }}
-          path: ${{ steps.inc_version.outputs.new_version }}.miz
+          tag_name: ${{ steps.inc_version.outputs.new_version }}
+          name: ${{ steps.inc_version.outputs.new_version }}
+          files: ${{ steps.inc_version.outputs.new_version }}.miz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
