@@ -27,10 +27,14 @@ jobs:
         id: inc_version
         run: |
           VERSION="${{ steps.read_version.outputs.version }}"
-          BASE=$(echo $VERSION | cut -d'-' -f2 | sed 's/\.[0-9]*$//')
-          LAST=$(echo $VERSION | awk -F'.' '{print $NF}')
-          NEXT=$((LAST + 1))
-          NEW_VERSION="TRMA-${BASE}.${NEXT}"
+          PREFIX=$(echo $VERSION | cut -d'-' -f1)
+          MAJOR=$(echo $VERSION | cut -d'-' -f2 | cut -d'.' -f1)
+          MINOR=$(echo $VERSION | cut -d'-' -f2 | cut -d'.' -f2)
+          PATCH=$(echo $VERSION | cut -d'-' -f2 | cut -d'.' -f3)
+          BUILD=$(echo $VERSION | cut -d'-' -f2 | cut -d'.' -f4)
+          
+          NEXT=$((BUILD + 1))
+          NEW_VERSION="${PREFIX}-${MAJOR}.${MINOR}.${PATCH}.${NEXT}"
           echo $NEW_VERSION > version.txt
           echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
 
