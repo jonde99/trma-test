@@ -1,0 +1,55 @@
+name: Build DCS Mission
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - .github/**
+      - README.md
+      - dummy.miz
+      - appveyor.yml
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secret.GUTHUB_TOKEN }}
+
+      - name: Increment version
+        id: inc_version
+        run: |
+          VERSION="${{ steps.read_version.outputs.version }}"
+          BASE=$(echo $VERSION | cut -d'-' -f2 | sed 's/\.[0-9]*$//')
+          LAST=$(echo $VERSION | awk -F'.' '{print $NF}')
+          NEXT=$((LAST + 1))
+          NEW_VERSION="TRMA-${BASE}.${NEXT}"
+          echo $NEW_VERSION > version.txt
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Commit updated version
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add version.txt
+          git commit -m "Version bump to ${{ steps.inc_version.outputs.new_version }}"
+          git push
+
+      - name: Create .miz file
+        run: |
+          zip -r ${{ steps.inc_version.outputs.new_version }}.miz . \
+            -x ".github/*" \
+            -x "*.git*" \
+            -x "README.md"
+            -x "dummy.miz"
+            -x "appveyor.yml"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DCS-Mission-${{ steps.inc_version.outputs.new_version }}
+          path: ${{ steps.inc_version.outputs.new_version }}.miz
