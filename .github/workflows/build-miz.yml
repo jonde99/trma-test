@@ -44,8 +44,8 @@ jobs:
           zip -r ${{ steps.inc_version.outputs.new_version }}.miz . \
             -x ".github/*" \
             -x "*.git*" \
-            -x "README.md"
-            -x "dummy.miz"
+            -x "README.md" \
+            -x "dummy.miz" \
             -x "appveyor.yml"
 
       - name: Upload artifact
